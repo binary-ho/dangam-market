@@ -1,0 +1,27 @@
+<body style="box-sizing: border-box;position: relative;width: 1440px;height: 1024px;background: #FBF7F2;">
+
+<div style="position: relative;width: 1440px;height: 1024px;left: 146px;top: 136px;
+  font-family: 'Inter';font-style: normal;font-weight: 400;font-size: 48px;line-height: 58px;text-align: left;
+  color: #000000;">물건 구매하기
+  <form action="/" style=" position: absolute;width: 40px;height: 40px;top: -5px; left: -55px;font-size: 55px; font-weight: bold; box-shadow: none">
+    <button type="submit" style="width: 40px; height: 40px; border: none; background: #FBF7F2; font-size: 55px; font-weight: bold; box-shadow: #FBF7F2" ><</button>
+  </form>
+  <br><br>
+
+  <% @posts.each do |post_now| %>
+    <form action="/post/<%=post_now.id%>">
+      <button type="submit" style="box-sizing: border-box;height: 300px; width: 600px; border-color: black; background-color: #FFFFFF;
+        font-family: 'Inter';font-style: normal;font-weight: 400;font-size: 24px;line-height: 58px;; text-align: center; color: #000000;">
+        상품: <%=post_now.item %> <br>
+        가격: <%=post_now.price %> 원 <br>
+        동네: <%=post_now.dong %><br><br>
+      </button>
+    </form>
+    <br>
+  <% end %>
+
+</div>
+
+
+
+</body>

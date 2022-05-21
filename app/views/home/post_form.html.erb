@@ -1,0 +1,66 @@
+<body style="box-sizing: border-box;position: relative;width: 1440px;height: 1024px;background: #FBF7F2;">
+
+<div style="position: relative;width: 1440px;height: 1024px;left: 146px;top: 136px;
+  font-family: 'Inter';font-style: normal;font-weight: 400;font-size: 48px;line-height: 58px;text-align: left;
+  color: #000000;">중고거래 글쓰기
+  <form action="/" style=" position: absolute;width: 40px;height: 40px;top: -5px; left: -55px;font-size: 55px; font-weight: bold; box-shadow: none">
+    <button type="submit" style="width: 40px; height: 40px; border: none; background: #FBF7F2; font-size: 55px; font-weight: bold; box-shadow: #FBF7F2" ><</button>
+  </form>
+
+  <div style="position: relative;width: 1440px;height: 1000px;left: -20px;top: 50px; alignment: left">
+    <form action="/post/new" method="post" >
+      <div class="form-group" style="padding-top: 20px" >
+        <label for="item" style="alignment: center; text-align: center">상품 이름</label>
+        <input style="height: 50px; width: 450px;  padding-top: 13px; padding-left: 20px;font-size: 30px; text-align: center" type="text" id="item" name="item" placeholder="상품 이름을 입력 해주세요">
+      </div>
+      <div class="form-group" style="padding-top: 20px">
+        <label for="price">상품 가격</label>
+        <input style="height: 50px; width: 450px; padding-top: 13px; padding-left: 20px; font-size: 30px; text-align: center" type="number" id="price" name="price" placeholder="가격을 입력 해주세요">
+      </div>
+      <div class="form-group" style="padding-top: 20px" >
+        <label for="address" style="alignment: center; ">내 주소</label>
+        <input style="height: 50px; width: 500px;  padding-top: 13px; padding-left: 20px;font-size: 30px; text-align: left" type="text" id="address" name="address" placeholder="주소를 검색 해주세요" readonly>
+        <button style="box-sizing: border-box;position: relative;width: 130px;height: 75px; top: -5px;
+          background: #FFFFFF;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);border-radius: 30px;
+          alignment: right; background-color: #FF8A3D; border: none;
+          font-family: 'Inter';font-style: normal;font-weight: 700;font-size: 32px;line-height: 39px;text-align: center;color: #FFFFFF;"
+                type="button" id="serch_addres" onclick="pop();">검색</button>
+      </div>
+      <div class="form-group" style="visibility: hidden; height: 0px; width: 0px">
+        <input type="text" id="dong" name="dong" placeholder="" style="height: 0px; width: 0px">
+      </div>
+      <input style="box-sizing: border-box;position: relative;width: 253px;height: 81px; left: 450px; top: 10px;
+        background: #FFFFFF;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);border-radius: 30px;
+        alignment: right; background-color: #FF8A3D; border: none;
+        font-family: 'Inter';font-style: normal;font-weight: 700;font-size: 32px;line-height: 39px;text-align: center;color: #FFFFFF;" value="글 올리기" type="submit">
+
+    </form>
+
+
+  </div>
+</div>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function pop() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+
+                let dong = '';
+                dong = data.jibunAddress.split(' ')[2];
+                if(dong == null) {
+                    dong = data.roadAddress.split(' ')[1];
+                }
+                document.getElementById("dong").value = dong;
+
+                let addr = '';
+                if (data.userSelectedType === 'R') {
+                    addr = data.roadAddress;
+                } else {
+                    addr = data.jibunAddress;
+                }
+                document.getElementById("address").value = addr;
+            }
+        }).open();
+    }
+</script>
+</body>
