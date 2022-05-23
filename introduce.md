@@ -2,6 +2,8 @@
 ![단감 1](https://user-images.githubusercontent.com/71186266/169736798-12be0982-48e8-4940-b754-7447bb3a41ab.PNG)
 
 ### Ruby on Rails를 이용하여 간단하게 Create, Read, Delete 기능을 구현해 보았습니다. <br>
+### Screen Design은 Figma를 이용했습니다. <br>
+
 ![화면 캡처 2022-05-23 123038](https://user-images.githubusercontent.com/71186266/169738103-b20842c5-69b0-4fe6-b05c-3e76f5bb365a.png)
 ### 판매하기 버튼을 누르면 글 쓰기 화면으로 이동하게 됩니다. 내 주소 옆의 검색 버튼을 누르면 오른쪽과 같이 카카오 지도 API 화면이 나오게 됩니다. <br>
 
